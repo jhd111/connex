@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  .field-input {
+    @apply w-full rounded-lg border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-[14px] text-white placeholder:text-haze-400/60 transition-colors;
+    @apply focus:border-cyan-500/50 focus:bg-white/[0.05] focus:outline-none;
+  }
+  .field-select {
+    background-color: #101828;
+  }
+  
+  .field-option {
+    background-color: #101828;
+    color: #ffffff;
+  }
+
+  /* body {
+    @apply bg-ink-900 text-haze-200 font-body antialiased;
+  } */
+  body {
+    @apply bg-ink-900 text-haze-200 antialiased;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  .top-glow {
+    background: linear-gradient(
+      180deg,
+      #123039 0%,
+      #0f2933 18%,
+      #0d1e2c 38%,
+      #0a1220 68%,
+      #0a1220 100%
+    );
+  }
+
+  /* .page-gradient {
+    background: linear-gradient(180deg, #070d18 0%, #0b1526 55%, #0d1a2f 100%);
+  } */
+
+  .page-gradient {
+    background:
+      radial-gradient(
+        1200px 600px at 90% -10%,
+        rgba(108, 169, 255, 0.2),
+        transparent
+      ),
+      radial-gradient(
+        900px 600px at 10% 5%,
+        rgba(61, 224, 207, 0.16),
+        transparent
+      ),
+      linear-gradient(180deg, #070d18, #0b1526);
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display text-white tracking-tight;
+  }
+
+  ::selection {
+    @apply bg-cyan-500/40 text-white;
+  }
+
+  :focus-visible {
+    outline: 2px solid #5eb8ff;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@layer utilities {
+  .container-page {
+    @apply mx-auto w-full max-w-8xl px-5 sm:px-8 lg:px-12;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(94, 184, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(94, 184, 255, 0.06) 1px, transparent 1px);
+    background-size: 42px 42px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.marquee-track {
+  animation: marquee 26s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
